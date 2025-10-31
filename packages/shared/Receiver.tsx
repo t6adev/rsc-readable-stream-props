@@ -1,14 +1,12 @@
 'use client';
 
-import { useEffect, useState, useRef, use, Suspense } from 'react';
+import { useEffect, useState, use, Suspense } from 'react';
 
 export const ReceiverPatternA = ({ stream }: { stream: ReadableStream }) => {
   const [output, setOutput] = useState('');
-  const streamRef = useRef<ReadableStream | null>(null);
 
   useEffect(() => {
-    if (streamRef.current) return;
-    streamRef.current = stream;
+    if (stream.locked) return;
     const reader = stream.getReader();
 
     (async () => {
