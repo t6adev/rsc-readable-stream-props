@@ -1,4 +1,4 @@
-import { ReceiverPatternA, ReceiverPatternB } from './Receiver';
+import { ClientReceiverPatternA, ClientReceiverPatternB } from './ClientReceiver';
 
 export const Streamer = async ({ pattern }: { pattern: 'A' | 'B' }) => {
   const text =
@@ -25,13 +25,13 @@ export const Streamer = async ({ pattern }: { pattern: 'A' | 'B' }) => {
     return (
       <div>
         <div>Pattern A:</div>
-        <ReceiverPatternA stream={stream} />
+        <ClientReceiverPatternA stream={stream} />
       </div>
     );
   return (
     <div>
       <div>Pattern B:</div>
-      <ReceiverPatternB stream={stream} />
+      <ClientReceiverPatternB stream={stream} />
     </div>
   );
 };

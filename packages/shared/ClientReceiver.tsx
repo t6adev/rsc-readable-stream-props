@@ -2,7 +2,7 @@
 
 import { useEffect, useState, use, Suspense } from 'react';
 
-export const ReceiverPatternA = ({ stream }: { stream: ReadableStream }) => {
+export const ClientReceiverPatternA = ({ stream }: { stream: ReadableStream }) => {
   const [output, setOutput] = useState('');
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const StreamingNode = ({
   );
 };
 
-export const ReceiverPatternB = ({ stream }: { stream: ReadableStream }) => {
+export const ClientReceiverPatternB = ({ stream }: { stream: ReadableStream }) => {
   const reader = !stream.locked ? stream.getReader() : null;
 
   if (!reader) return null;
