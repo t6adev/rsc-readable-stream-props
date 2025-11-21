@@ -9,12 +9,15 @@ import type { getConfig as File_Index_getConfig } from './pages/index';
 import type { getConfig as File_PatternA_getConfig } from './pages/pattern-a';
 // prettier-ignore
 import type { getConfig as File_PatternB_getConfig } from './pages/pattern-b';
+// prettier-ignore
+import type { getConfig as File_PatternC_getConfig } from './pages/pattern-c';
 
 // prettier-ignore
 type Page =
 | ({ path: '/' } & GetConfigResponse<typeof File_Index_getConfig>)
 | ({ path: '/pattern-a' } & GetConfigResponse<typeof File_PatternA_getConfig>)
-| ({ path: '/pattern-b' } & GetConfigResponse<typeof File_PatternB_getConfig>);
+| ({ path: '/pattern-b' } & GetConfigResponse<typeof File_PatternB_getConfig>)
+| ({ path: '/pattern-c' } & GetConfigResponse<typeof File_PatternC_getConfig>);
 
 // prettier-ignore
 declare module 'waku/router' {

@@ -10,6 +10,9 @@ export default async function HomePage() {
       <Link to="/pattern-b" className="mt-4 block underline">
         Pattern B
       </Link>
+      <Link to="/pattern-c" className="mt-4 block underline">
+        Pattern C
+      </Link>
     </div>
   );
 }

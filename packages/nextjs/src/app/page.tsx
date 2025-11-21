@@ -10,6 +10,9 @@ export default function Home() {
       <Link href="/pattern-b" className="mt-4 block underline">
         Pattern B
       </Link>
+      <Link href="/pattern-c" className="mt-4 block underline">
+        Pattern C
+      </Link>
     </div>
   );
 }

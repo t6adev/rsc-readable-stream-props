@@ -1,6 +1,8 @@
 'use client';
 
-import { useEffect, useState, use, Suspense } from 'react';
+import { useEffect, useState, Suspense } from 'react';
+
+import { StreamingNode } from './StreamingNode';
 
 export const ClientReceiverPatternA = ({ stream }: { stream: ReadableStream }) => {
   const [output, setOutput] = useState('');
@@ -21,25 +23,6 @@ export const ClientReceiverPatternA = ({ stream }: { stream: ReadableStream }) =
     })();
   }, [stream]);
   return <div>{output}</div>;
-};
-
-const StreamingNode = ({
-  readableStreamReadResultPromise,
-  reader,
-}: {
-  readableStreamReadResultPromise: Promise<ReadableStreamReadResult<any>>;
-  reader: ReadableStreamDefaultReader;
-}) => {
-  const { done, value } = use(readableStreamReadResultPromise);
-  if (done) return '--- Completed ---';
-  return (
-    <>
-      <span>{value}</span>
-      <Suspense fallback="">
-        <StreamingNode readableStreamReadResultPromise={reader.read()} reader={reader} />
-      </Suspense>
-    </>
-  );
 };
 
 export const ClientReceiverPatternB = ({ stream }: { stream: ReadableStream }) => {
